@@ -5,3 +5,4 @@ A project with django of  a contacts list
 - Registrando modelos no Django Admin
 - Configuração de media
 - Usando a classe User do django
+- Setando configurações locais
