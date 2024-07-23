@@ -9,3 +9,4 @@ A project with django of  a contacts list
 - Faker para criação de registros falsos
 - Manipulação de QuerySets Django
 - Paginação
+- Formularios dinâmicos com Django

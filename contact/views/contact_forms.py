@@ -1,15 +1,23 @@
 from django.shortcuts import render
-
-from contact.models import Contact
+from contact.forms import ContactForm
 
 
 def create(request):
 
-    contacts = Contact.objects \
-        .filter(show=True) \
-        .order_by('-id')
+    if request.method == 'POST':
 
-    context = {}
+        context = {
+            'form': ContactForm(request.POST)
+        }
+        return render(
+            request,
+            'contact/create.html',
+            context
+        )
+
+    context = {
+        'form': ContactForm()
+    }
     return render(
         request,
         'contact/create.html',
