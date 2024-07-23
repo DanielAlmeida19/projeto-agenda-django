@@ -8,3 +8,4 @@ A project with django of  a contacts list
 - Setando configurações locais
 - Faker para criação de registros falsos
 - Manipulação de QuerySets Django
+- Paginação
