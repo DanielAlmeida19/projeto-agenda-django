@@ -6,3 +6,5 @@ A project with django of  a contacts list
 - Configuração de media
 - Usando a classe User do django
 - Setando configurações locais
+- Faker para criação de registros falsos
+- Manipulação de QuerySets Django
