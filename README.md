@@ -10,3 +10,4 @@ A project with django of  a contacts list
 - Manipulação de QuerySets Django
 - Paginação
 - Formularios dinâmicos com Django
+- Configuração de Widgets no formulário 
