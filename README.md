@@ -12,3 +12,4 @@ A project with django of  a contacts list
 - Formularios dinâmicos e validação com Django
 - Configuração de Widgets no formulário 
 - Salvar e modificar base de dados por formulários
+- reverse e Redirect
