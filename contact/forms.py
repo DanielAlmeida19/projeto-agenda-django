@@ -1,44 +1,29 @@
+# type: ignore
 from django import forms
 from django.core.exceptions import ValidationError
-from contact.models import Contact
 from typing import Any
+from django.contrib.auth.forms import UserCreationForm
+
+from contact.models import Contact
 
 
 class ContactForm(forms.ModelForm):
 
-    first_name = forms.CharField(
-        widget=forms.TextInput(
+    picture = forms.ImageField(
+        widget=forms.FileInput(
             attrs={
-                'class': 'classe-a classe-b',
-                'placeholder': 'Aqui veio do init'
+                'accept': 'image/*'
             }
-        ),
-        label='Primeiro nome',
-        help_text='Escreva seu primeiro nome aqui'
+        )
     )
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-
-        # self.fields['first_name'].widget.attrs.update({
-        #     'class': 'classe-a classe-b',
-        #     'placeholder': 'Aqui veio do init'
-        # })
 
     class Meta:
         model = Contact
         fields = (
             'first_name', 'last_name', 'phone',
             'email', 'description', 'category',
+            'picture'
         )
-        # widgets = {
-        #     'first_name': forms.TextInput(
-        #         attrs={
-        #             'class': 'classe-a classe-b',
-        #             'placeholder': 'Escreva aqui'
-        #         }
-        #     )
-        # }
 
     def clean(self) -> dict[str, Any]:
         cleaned_data = self.cleaned_data
@@ -69,3 +54,7 @@ class ContactForm(forms.ModelForm):
             )
 
         return first_name
+
+
+class RegisterForm(UserCreationForm):
+    ...
