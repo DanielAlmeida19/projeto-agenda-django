@@ -13,5 +13,5 @@ A project with django of  a contacts list
 - Configuração de Widgets no formulário 
 - Salvar e modificar base de dados por formulários
 - reverse e Redirect
-- Adição de usuários
+- Adição e login/logout de usuários
 - Django fast messages
