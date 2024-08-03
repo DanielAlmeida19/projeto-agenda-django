@@ -14,3 +14,4 @@ A project with django of  a contacts list
 - Salvar e modificar base de dados por formulários
 - reverse e Redirect
 - Adição de usuários
+- Django fast messages
