@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect  # type: ignore
-from contact.forms import RegisterForm  # type: ignore
+from contact.forms import RegisterForm, RegisterUpdateForm  # type: ignore
 from django.contrib import messages, auth  # type: ignore
 from django.contrib.auth.forms import AuthenticationForm  # type: ignore
 
@@ -51,3 +51,31 @@ def login_view(request):
 def logout_view(request):
     auth.logout(request)
     return redirect('contact:login')
+
+
+def user_update(request):
+
+    if request.method != 'POST':
+
+        form = RegisterUpdateForm(instance=request.user)
+        return render(
+            request,
+            'contact/user_update.html',
+            {
+                'form': form
+            }
+        )
+
+    form = RegisterUpdateForm(data=request.POST, instance=request.user)
+
+    if not form.is_valid():
+        return render(
+            request,
+            'contact/user_update.html',
+            {
+                'form': form
+            }
+        )
+
+    form.save()
+    return redirect('contact:user_update')
